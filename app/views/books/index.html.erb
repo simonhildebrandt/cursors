@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= link_to 'Books', books_path %></h1>
+
+<p>
+  <%= pagination_links(@total_pages).join(' | ').html_safe %>
+  <%#= page_links(@last_book, @first_book).join(' | ').html_safe %>
+</p>
+
+<div id="books">
+  <% @books.each do |book| %>
+    <%= render book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New book", new_book_path %>
